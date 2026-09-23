@@ -12,6 +12,6 @@ class Trainer(ABC):
     @abstractmethod
     def train(self, project: ProjectConfig) -> Result:
         """
-        Train a machine learning model for a project.
+        Train a machine learning model for a app.
         """
         raise NotImplementedError

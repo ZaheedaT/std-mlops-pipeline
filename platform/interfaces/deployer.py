@@ -16,6 +16,6 @@ class Deployer(ABC):
         model
     ) -> Result:
         """
-        Deploy a model for a project.
+        Deploy a model for a app.
         """
         raise NotImplementedError

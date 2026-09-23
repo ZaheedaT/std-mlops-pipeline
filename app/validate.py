@@ -10,10 +10,10 @@ def validate(
     """
     Project-specific model validation entrypoint.
 
-    Implement the project's validation logic here.
+    Implement the app's validation logic here.
     """
 
     raise NotImplementedError(
         f"Validation implementation has not been defined "
-        f"for project '{project.name}'."
+        f"for app '{project.name}'."
     )

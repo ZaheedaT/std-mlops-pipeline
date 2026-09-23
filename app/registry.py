@@ -3,13 +3,13 @@ from typing import Any
 from platform.core.project import ProjectConfig
 
 
-def deploy(
+def register(
     project: ProjectConfig,
     model: Any,
 ) -> Any:
     """
-    Project-specific model deployment.
+    Project-specific model registration.
     """
 
-    # Implement project deployment here.
+    # Implement app model registration here.
     return model

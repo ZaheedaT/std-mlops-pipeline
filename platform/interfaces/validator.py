@@ -16,6 +16,6 @@ class Validator(ABC):
         model
     ) -> Result:
         """
-        Validate a trained model for a project.
+        Validate a trained model for a app.
         """
         raise NotImplementedError

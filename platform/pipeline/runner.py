@@ -14,10 +14,10 @@ from platform.validation.model_validator import ModelValidator
 
 def load_project_config() -> ProjectConfig:
     """
-    Load the project configuration.
+    Load the app configuration.
     """
 
-    config_path = Path("project/config.yaml")
+    config_path = Path("app/config.yaml")
 
     loader = ConfigLoader(str(config_path))
     config = loader.load()
@@ -27,7 +27,7 @@ def load_project_config() -> ProjectConfig:
 
 def create_pipeline(project: ProjectConfig) -> MLOpsPipeline:
     """
-    Create the MLOps pipeline using the project's
+    Create the MLOps pipeline using the app's
     configured concrete implementations.
     """
 
@@ -85,7 +85,7 @@ def create_pipeline(project: ProjectConfig) -> MLOpsPipeline:
 
 def run() -> None:
     """
-    Load the project and execute the MLOps pipeline.
+    Load the app and execute the MLOps pipeline.
     """
 
     project = load_project_config()

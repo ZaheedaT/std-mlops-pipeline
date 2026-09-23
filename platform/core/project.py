@@ -24,7 +24,7 @@ class ProjectConfig:
 
     @classmethod
     def from_dict(cls, config: dict) -> "ProjectConfig":
-        project = config["project"]
+        project = config["app"]
         training = config["training"]
         validation = config.get("validation", {})
         monitoring = config.get("monitoring", {})
@@ -37,7 +37,7 @@ class ProjectConfig:
             training_entrypoint=training["entrypoint"],
             validation_entrypoint=validation.get("entrypoint"),
             monitoring_workspace=monitoring.get("workspace"),
-            monitoring_project=monitoring.get("project"),
+            monitoring_project=monitoring.get("app"),
             monitoring_entrypoint=monitoring.get("entrypoint"),
             registry_entrypoint=registry.get("entrypoint"),
             deployment_namespace=deployment.get(

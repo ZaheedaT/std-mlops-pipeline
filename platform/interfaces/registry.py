@@ -16,6 +16,6 @@ class Registry(ABC):
         model
     ) -> Result:
         """
-        Register a model for a project.
+        Register a model for a app.
         """
         raise NotImplementedError

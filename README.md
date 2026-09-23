@@ -23,7 +23,7 @@ The design is based on OOP principles commonly used in C++, including:
 The project is divided into two main layers:
 
 ```text
-                         MLOps-Pipeline-OpenSource
+                        std-mlops-pipeline
                                   │
                     ┌─────────────┴─────────────┐
                     │                           │
@@ -117,6 +117,39 @@ mlops-pipeline/
 
 ---
 
+Running Python Modules
+
+Run Python modules from the project root using the `-m` flag.
+
+For example:
+
+```bash
+python -m tests.test_config
+```
+
+This is preferred over running the file directly:
+
+```bash
+python tests/test_config.py
+```
+
+Running with `-m` allows Python to treat the project root as the module search path, so project packages such as `platform` can be imported correctly.
+
+### Running Tests
+
+From the project root:
+
+```bash
+python -m tests.test_config
+```
+
+To run another test module:
+
+```bash
+python -m tests.test_entrypoint
+```
+-------------------------------------
+
 # OOP Architecture
 
 The central idea of the architecture is:
@@ -151,51 +184,6 @@ This allows the pipeline to remain independent of the specific implementation be
 
 ---
 
-# 1. Abstract Base Classes
-
-The `platform/interfaces/` directory contains the abstract base classes for the major MLOps components.
-
-In C++, these classes are similar to classes containing **pure virtual functions**.
-
-For example:
-
-```python
-from abc import ABC, abstractmethod
-
-class Trainer(ABC):
-
-    @abstractmethod
-    def train(self) -> Result:
-        pass
-```
-
-The `Trainer` class does not contain the actual machine learning training algorithm.
-
-It defines the operation that every trainer must provide.
-
-### C++ equivalent
-
-```cpp
-class Trainer {
-public:
-    virtual Result train() = 0;
-};
-```
-
-The following Python:
-
-```python
-@abstractmethod
-def train(self) -> Result:
-```
-
-serves a similar purpose to the C++:
-
-```cpp
-virtual Result train() = 0;
-```
-
----
 
 ## Interface Files
 
@@ -889,35 +877,3 @@ This project is intended to demonstrate a production-oriented, reusable MLOps ar
 
 The long-term goal is to create a reusable MLOps platform where a new machine learning project supplies its **project-specific model logic and configuration**, while the underlying MLOps infrastructure can be reused.
 
-
-## Running Python Modules
-
-Run Python modules from the project root using the `-m` flag.
-
-For example:
-
-```bash
-python -m tests.test_config
-```
-
-This is preferred over running the file directly:
-
-```bash
-python tests/test_config.py
-```
-
-Running with `-m` allows Python to treat the project root as the module search path, so project packages such as `platform` can be imported correctly.
-
-### Running Tests
-
-From the project root:
-
-```bash
-python -m tests.test_config
-```
-
-To run another test module:
-
-```bash
-python -m tests.test_entrypoint
-```

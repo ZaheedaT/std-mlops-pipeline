@@ -12,6 +12,6 @@ class Monitor(ABC):
     @abstractmethod
     def check(self, project: ProjectConfig) -> Result:
         """
-        Check whether retraining is required for a project.
+        Check whether retraining is required for a app.
         """
         raise NotImplementedError

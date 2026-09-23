@@ -3,7 +3,7 @@ from platform.config.entrypoint import EntrypointLoader
 
 def main():
     train_function = EntrypointLoader.load(
-        "project.train:train"
+        "app.train:train"
     )
 
     print("Entrypoint loaded successfully.")

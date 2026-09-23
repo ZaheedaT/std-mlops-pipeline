@@ -11,7 +11,7 @@ def predict(
     """
     Project-specific model prediction entrypoint.
 
-    Implement the project's prediction logic here.
+    Implement the app's prediction logic here.
     """
 
     return model.predict(data)

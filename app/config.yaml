@@ -3,21 +3,21 @@ project:
   model_name: ${PROJECT_NAME}
 
 training:
-  entrypoint: project.train:train
+  entrypoint: app.train:train
 
 validation:
-  entrypoint: project.validate:validate
+  entrypoint: app.validate:validate
 
 monitoring:
   workspace: ${PROJECT_NAME}
   project: ${PROJECT_NAME}
-  entrypoint: project.monitor:check
+  entrypoint: app.monitor:check
 
 registry:
-  entrypoint: project.registry:register
+  entrypoint: app.registry:register
 
 deployment:
   namespace: default
   replicas: 1
   ecr_repository: ${PROJECT_NAME}
-  entrypoint: project.deploy:deploy
+  entrypoint: app.deploy:deploy

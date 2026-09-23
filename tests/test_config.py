@@ -3,7 +3,7 @@ from platform.core.project import ProjectConfig
 
 
 def main():
-    loader = ConfigLoader("project/config.yaml")
+    loader = ConfigLoader("app/config.yaml")
 
     config = loader.load()
 

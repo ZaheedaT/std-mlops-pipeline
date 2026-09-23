@@ -9,7 +9,7 @@ from dotenv import load_dotenv
 
 class ConfigLoader:
     """
-    Loads project configuration from a YAML file
+    Loads app configuration from a YAML file
     and resolves environment variables.
     """
 

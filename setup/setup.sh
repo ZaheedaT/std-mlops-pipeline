@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Setup script for the MLOps project
+# Setup script for the MLOps app
 
 set -e
 
