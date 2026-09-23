@@ -1,0 +1,23 @@
+project:
+  name: ${PROJECT_NAME}
+  model_name: ${PROJECT_NAME}
+
+training:
+  entrypoint: project.train:train
+
+validation:
+  entrypoint: project.validate:validate
+
+monitoring:
+  workspace: ${PROJECT_NAME}
+  project: ${PROJECT_NAME}
+  entrypoint: project.monitor:check
+
+registry:
+  entrypoint: project.registry:register
+
+deployment:
+  namespace: default
+  replicas: 1
+  ecr_repository: ${PROJECT_NAME}
+  entrypoint: project.deploy:deploy
