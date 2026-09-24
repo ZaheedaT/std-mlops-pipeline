@@ -1,8 +1,9 @@
 # MLOps Pipeline
 
-An object-oriented MLOps platform designed to manage the machine learning lifecycle from **training and validation through model registration, deployment, and production monitoring**.
+An object-oriented MLOps platform designed to manage the machine learning lifecycle from **training and validation through model registration, deployment, and production monitoring** utilising Wrappers.
 
-The project separates the reusable **MLOps platform** from the project-specific **machine learning logic**. This allows the same platform architecture to be reused across different machine learning projects.
+The project separates the reusable **MLOps platform** from the project-specific **machine learning logic**. 
+This allows the same platform architecture to be reused across different machine learning projects.
 
 The design is based on OOP principles commonly used in C++, including:
 
@@ -148,6 +149,25 @@ To run another test module:
 ```bash
 python -m tests.test_entrypoint
 ```
+
+### Run Your Project 
+##### Run Entrypoint Code
+Tells the framework where it should enter your project's code.
+
+```bash
+python -m <your_project>.<your_train_dir>:<your_trainfunc?
+```
+```text
+project.train:train
+│      │      │
+│      │      └── function: train
+│      └───────── module: project.train
+└──────────────── package: project
+```
+
+```bash
+pipeline.run(project)
+```
 -------------------------------------
 
 # OOP Architecture
@@ -282,7 +302,7 @@ The inheritance relationships are:
 
 ┌─────────────────────────────────────────┐
 │ platform/interfaces/trainer.py          │
-│ Trainer                                  │
+│ Trainer                                 │
 │ ABSTRACT BASE CLASS                     │
 └────────────────────┬────────────────────┘
                      ▲
@@ -347,7 +367,7 @@ The inheritance relationships are:
                      │
 ┌────────────────────┴────────────────────┐
 │ platform/deployment/deployer.py         │
-│ KubernetesDeployer                     │
+│ KubernetesDeployer                      │
 │ CONCRETE CLASS                          │
 └─────────────────────────────────────────┘
 
@@ -785,7 +805,7 @@ The core architecture can be represented as:
                                   │
                                   ▼
                     ┌──────────────────────────┐
-                    │ platform/interfaces/    │
+                    │ platform/interfaces/     │
                     │                          │
                     │ trainer.py               │
                     │ validator.py             │
